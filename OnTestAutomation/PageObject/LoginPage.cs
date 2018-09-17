@@ -30,7 +30,7 @@ namespace OnTestAutomation.PageObject
 
         private IWebElement Role { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".login-button")]
+        [FindsBy(How = How.XPath, Using = "//input[@value='Sign Me In']")]
 
         private IWebElement SignInButton { get; set; }
 
