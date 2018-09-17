@@ -1,69 +1,93 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
-using OnTestAutomation.BaseClasses;
-using OnTestAutomation.ComponentHelper;
-using OnTestAutomation.Settings;
+﻿using OpenQA.Selenium;
+
+using OpenQA.Selenium.Support.PageObjects;
+
+using OpenQA.Selenium.Support.UI;
+
+
 
 namespace OnTestAutomation.PageObject
+
 {
-    public class LoginPage : PageBase
+
+    class LoginPage
+
     {
+
         private IWebDriver driver;
 
 
-        #region WebElement
-        [FindsBy(How = How.Id, Using = "Bugzilla_login")]
-        private IWebElement LoginTextBox;
-        //private IWebElement LoginTextBox => driver.FindElement(By.Id("Bugzilla_login"));
 
-        [FindsBy(How = How.Id, Using = "Bugzilla_password")]
-        private IWebElement PassTextBox;
-        //private IWebElement PassTextBox => driver.FindElement(By.Id("Bugzilla_password"));
+        [FindsBy(How = How.Id, Using = "loginEmail")]
 
-        [FindsBy(How = How.Id, Using = "log_in")]
-        [CacheLookup]
-        private IWebElement LoginButton;
-        //private IWebElement LoginButton => driver.FindElement(By.Id ("log_in"));
+        private IWebElement UserName { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Home")]
-        private IWebElement HomeLink;
-        //private IWebElement HomeLink => driver.FindElement(By.LinkText("Home"));
+        [FindsBy(How = How.Name, Using = "password")]
+
+        private IWebElement Password { get; set; }
+
+        [FindsBy(How = How.Name, Using = "role")]
+
+        private IWebElement Role { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".login-button")]
+
+        private IWebElement SignInButton { get; set; }
 
 
-        #endregion
 
-        public LoginPage(IWebDriver _driver) : base(_driver)
+        //To enter user name filed
+
+        public void EnterUsername(string userName)
+
         {
-            this.driver = _driver;
+
+            UserName.Clear();
+
+            UserName.SendKeys(userName);
 
         }
 
-        #region Actions
 
-        //public EnterBug Login(string usename, string password)
-        //{
-        //    LoginTextBox.SendKeys(usename);
-        //    PassTextBox.SendKeys(password);
-        //    LoginButton.Click();
-        //    GenericHelper.WaitForWebElementInPage(By.LinkText("Testng"), TimeSpan.FromSeconds(30));
-        //    return new EnterBug(driver);
 
-        //}
+        //To enter password field
 
-        #endregion
+        public void EnterPassword(string password)
 
-        #region Navigation
-
-        public void NavigateToHome()
         {
-            HomeLink.Click();
+
+            Password.SendKeys(password);
+
         }
 
-        #endregion
+
+
+        //To select role in drop down
+
+        public void SelectRole(string role)
+
+        {
+
+            SelectElement roleSele = new SelectElement(Role);
+
+            roleSele.SelectByText(role);
+
+        }
+
+
+
+        //To Click on signin button
+
+        public void ClickSiginIn()
+
+        {
+
+            SignInButton.Click();
+
+        }
+
+
+
     }
+
 }
