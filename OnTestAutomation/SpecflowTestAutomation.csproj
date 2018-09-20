@@ -173,7 +173,7 @@
     <Compile Include="Helpers\OTALoadableComponent.cs" />
     <Compile Include="Helpers\ReportingMethods.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
-    <Compile Include="PageObject\LoginPage.cs" />
+    <Compile Include="Pages\ExcelLoginPage.cs" />
     <Compile Include="Pages\LoginErrorPage.cs" />
     <Compile Include="Pages\AccountsOverviewPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
@@ -184,7 +184,6 @@
     <Compile Include="StepDefinitions\Hooks.cs" />
     <Compile Include="StepDefinitions\SetupAndTeardownSteps.cs" />
     <Compile Include="StepDefinitions\LoginSteps.cs" />
-    <Compile Include="TestCases\OpenHrmsLoginTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

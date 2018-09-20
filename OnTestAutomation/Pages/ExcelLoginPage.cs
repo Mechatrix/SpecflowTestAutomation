@@ -10,7 +10,7 @@ namespace OnTestAutomation.PageObject
 
 {
 
-    class LoginPage
+    class ExcelLoginPage
 
     {
 

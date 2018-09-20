@@ -35,7 +35,7 @@ namespace OnTestAutomation.ExcelReader
                 driver.Manage().Window.Maximize();
                 driver.Url = URL;
                 //Creates object for Login page
-                var loginPage = new LoginPage();
+                var loginPage = new ExcelLoginPage();
                 //Initializes Login page objects with Page Factory concept
                 PageFactory.InitElements(driver, loginPage);
                 //Calls Login page methods
